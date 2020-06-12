@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PharmaCongo | Tous les produits{% endblock %}
+
+{% block content %}
+    {% for produit in produits %}
+    <div class="container">
+        <ul>
+            <li><img src="{{ asset('uploads/' ~ produit.images) }}" class="responsive-img"></li>
+            <li><b>{{ produit.nomProduit}}</b></li>
+        </ul>
+    </div>
+    {% endfor %}
+    
+{% endblock %}

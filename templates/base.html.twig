@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}PharmaCongo{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        {% block stylesheets %}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/app_pharma.css') }}"> 
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/images/image_pharma.png') }}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">  
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container center" style="color:green">
+        PharmaCongoOnline est une plateforme répertoriant des pharmacies et parapharmacies du Congo, disponibles aux quatre coins du pays.
+        </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{path('pharmacie')}}"><h4><b>242PharmaOnline</b></h4></a>
+       <img src="{{ asset('assets/images/image_pharma.jpg')}}" alt="logo" />
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li style="color:blue;"><a href="{{path('pharmacie')}}"><span class="glyphicon glyphicon-home"></span> ACCUEIL</a></li>
+      <li style="color:blue;"><a href="#"><span class="glyphicon glyphicon-calendar"></span> LISTE DES PHARMACIES </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-search"></span> RECHERCHER UNE PHARMACIE</a></li>
+      <li><a href="{{ path('app_register') }}"><span class="glyphicon glyphicon-user"></span> S'INSCRIRE</a></li>
+      {% if app.user %}
+      <li><a href="{{path('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span>SE DECONNECTER</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Espace Administrateur</a></li>
+      {% else %}
+      <li><a href="{{ path('app_login') }}"><span class="glyphicon glyphicon-log-in"></span> SE CONNECTER</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+        {% block content %}{% endblock %}
+        {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<script type="text/javascript">
+		    $('select').formSelect();
+		</script>
+        {% endblock %}
+    </body>
+</html>
+

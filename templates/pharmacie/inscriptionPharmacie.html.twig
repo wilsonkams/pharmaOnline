@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PharmaCongo | Ajout Produit{% endblock %}
+
+{% block content %}
+    <body style="overflow:scroll; position:relative" data-spy="scroll">
+            <div class="container center">
+                {% for user in user %}
+                    <ul align="right">
+                        <li><span class="glyphicon glyphicon-user"> Bonjour {{ app.user.username }}</li>
+                    </ul>
+                {% endfor %}
+            </div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="color:blue;"><a href="#"><span class="glyphicon glyphicon-home"></span> ACCUEIL</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span> RECHERCHER UN MEDICAMENT</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> MA PHARMACIE</a></li>
+                </ul>
+            </div>
+        </nav>
+            <div class="container center">
+                {{ form(form)}}
+            </div>
+    </body>
+{% endblock %}
